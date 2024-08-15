@@ -1,0 +1,17 @@
+.btn {
+  width: 49%;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn_submit {
+  background-color: var(--Primary);
+  color: var(--White);
+}
+
+.btn:hover {
+  background-color: var(--Blue800);
+}

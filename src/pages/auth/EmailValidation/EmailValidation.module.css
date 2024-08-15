@@ -1,0 +1,134 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: calc(100% - 80px);
+    height: auto;
+    gap: 20px;
+    background: #222;
+    color: #fff;
+    background: hsla(246, 79%, 76%, 1);
+    padding: 40px;
+
+    background: linear-gradient(
+      180deg,
+      hsla(246, 79%, 76%, 1) 0%,
+      hsla(230, 83%, 37%, 1) 100%
+    );
+
+    background: -moz-linear-gradient(
+      180deg,
+      hsla(246, 79%, 76%, 1) 0%,
+      hsla(230, 83%, 37%, 1) 100%
+    );
+
+    background: -webkit-linear-gradient(
+      180deg,
+      hsla(246, 79%, 76%, 1) 0%,
+      hsla(230, 83%, 37%, 1) 100%
+    );
+
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#9B91F2", endColorstr="#102AAE", GradientType=1 );
+
+    h1 {
+      font-size: 2.2rem;
+      margin: 0;
+    }
+
+    p {
+      margin-top: 0;
+    }
+  }
+
+  .formContainer {
+    width: calc(40% - 80px);
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 40px;
+
+    .googleBtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      color: #222;
+      border-radius: 6px;
+      padding: 10px;
+      width: 100%;
+      cursor: pointer;
+
+      img {
+        width: 30px;
+      }
+    }
+
+    .infoEmail {
+      color: #555;
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: 15px;
+
+      .input {
+        width: 100%;
+        color: #222;
+        border-radius: 6px;
+        background-color: #f9f9f9;
+        outline: none;
+        box-sizing: border-box;
+        padding: 15px;
+        border: none;
+        font-size: 17px;
+      }
+
+      .submitButton {
+        width: 100%;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        padding: 15px;
+        cursor: pointer;
+        font-size: 17px;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+
+    .alreadyAccount {
+      color: #555;
+      a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+        &.disabled {
+          color: #555;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}

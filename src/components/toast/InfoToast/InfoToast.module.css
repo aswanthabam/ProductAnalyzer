@@ -1,0 +1,27 @@
+.infoToast {
+  z-index: 9999;
+  padding: 5px 20px;
+  border-radius: 5px;
+  margin: 10px 0;
+  background: var(--color-primary-yellow) 10%;
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FF930F", endColorstr="#FFF95B", GradientType=1 );
+  color: #222;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  width: calc(100% - 40px);
+  display: none;
+
+  .child {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 0.8rem;
+  }
+  &.visible {
+    display: flex;
+  }
+}

@@ -1,0 +1,34 @@
+.toast {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+  z-index: 9999;
+  padding: 15px;
+  border-radius: 5px;
+  background: var(--color-primary-violet-2) 10%;
+  color: #222;
+  box-shadow: 0 0 10px rgba(103, 102, 102, 0.5);
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  width: calc(100% - 50px);
+  display: none;
+  animation: PopOutAnimation 0.5s linear forwards 1;
+
+  .child {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.hidden {
+    display: none;
+  }
+
+  &.visible {
+    display: flex;
+    animation: PopUpAnimation 2s linear forwards 1;
+  }
+}

@@ -4,15 +4,18 @@ import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { useEffect, useState } from "react";
 import { resendEmail, validateEmail } from "../services/api";
+import { useToast } from "../../../context/toast/ToastContext";
 type EmailValidationForm = {
   code: string;
 };
 
 const EmailValidation = () => {
+  const redirect = useNavigate();
+  const showToast = useToast().showToast;
   const [loading, setLoading] = useState(false);
   const [allowResend, setAllowResend] = useState(true);
   var [resendCountown, setResendCountdown] = useState(0);
-  const redirect = useNavigate();
+
   var intervalId = 0;
   useEffect(() => {
     var accessToken = localStorage.getItem("accessToken");
@@ -32,16 +35,16 @@ const EmailValidation = () => {
     validateEmail(values.code)
       .then((res) => {
         if (res.status === "success") {
-          alert("Email validated successfully");
+          showToast("Email verified successfully");
           redirect("/dashboard");
         } else {
-          alert(res.message);
+          showToast(res.message, 5000);
         }
         setLoading(false);
       })
       .catch((_) => {
         setLoading(false);
-        alert("An error occurred while validating email");
+        showToast("An error occurred. Please try again later", 5000);
       });
   };
   const resendCode = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -66,9 +69,9 @@ const EmailValidation = () => {
     }, 1000);
     resendEmail().then((res) => {
       if (res.status === "success") {
-        alert("Code sent successfully");
+        showToast("OTP sent successfully");
       } else {
-        alert(res.message);
+        showToast(res.message, 5000);
       }
     });
   };

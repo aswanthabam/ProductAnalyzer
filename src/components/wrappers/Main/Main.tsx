@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Toast } from "../../toast/Toast";
+import { Toast } from "../../toast/Toast/Toast";
 import styles from "./Main.module.css";
 
 const Main = () => {

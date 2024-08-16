@@ -2,6 +2,7 @@ import { Formik, Form, Field } from "formik";
 import styles from "../CommonStyles.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../services/api";
+import { useToast } from "../../../context/toast/ToastContext";
 
 type LoginForm = {
   email: string;
@@ -10,6 +11,7 @@ type LoginForm = {
 
 const Login = () => {
   const redirect = useNavigate();
+  const { showToast } = useToast();
   const initialValues = {
     email: "",
     password: "",
@@ -18,9 +20,10 @@ const Login = () => {
     login(values.email, values.password).then((res) => {
       if (res.status === "success") {
         localStorage.setItem("accessToken", res.data.access_token);
+        showToast("Logged in successfully");
         redirect("/dashboard");
       } else {
-        alert(res.message);
+        showToast(res.message, 5000);
       }
     });
   };

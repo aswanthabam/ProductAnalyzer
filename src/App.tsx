@@ -7,7 +7,7 @@ import NotFound from "./pages/errors/404/404";
 import Register from "./pages/auth/Register/Register";
 import EmailValidation from "./pages/auth/EmailValidation/EmailValidation";
 import DashboardWrapper from "./components/wrappers/Dashboard/DashboardWrapper";
-import DashboardHome from "./pages/dashboard/Home/Home";
+import DashboardHome from "./pages/dashboard/Home/DashboardHome";
 import Main from "./components/wrappers/Main/Main";
 
 function App() {

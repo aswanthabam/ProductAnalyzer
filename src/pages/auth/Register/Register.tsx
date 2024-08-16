@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { register } from "../services/api";
 import { useState } from "react";
+import { useToast } from "../../../context/toast/ToastContext";
 type RegisterForm = {
   full_name: string;
   email: string;
@@ -11,8 +12,9 @@ type RegisterForm = {
 };
 
 const Register = () => {
-  const [loading, setLoading] = useState(false);
   const redirect = useNavigate();
+  const showToast = useToast().showToast;
+  const [loading, setLoading] = useState(false);
   const initialValues = {
     full_name: "",
     email: "",
@@ -31,14 +33,15 @@ const Register = () => {
         if (res.status === "success") {
           localStorage.setItem("accessToken", res.data.access_token);
           redirect("/register/confirm-email");
+          showToast("Registered successfully. Please verify your email", 3000);
         } else {
-          alert(res.message);
+          showToast(res.message, 5000);
         }
         setLoading(false);
       })
       .catch((_) => {
         setLoading(false);
-        alert("An error occurred while registering.");
+        showToast("An error occurred. Please try again later", 5000);
       });
   };
   return (

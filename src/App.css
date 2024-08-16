@@ -1,0 +1,23 @@
+@keyframes PopUpAnimation {
+  0% {
+    display: flex;
+    transform: translateY(100%);
+  }
+  10% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes PopOutAnimation {
+  0% {
+    display: flex;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}

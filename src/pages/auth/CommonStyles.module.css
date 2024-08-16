@@ -15,25 +15,25 @@
     gap: 20px;
     background: #222;
     color: #fff;
-    background: hsla(246, 79%, 76%, 1);
+    background: var(--color-primary-violet);
     padding: 40px;
 
     background: linear-gradient(
       180deg,
-      hsla(246, 79%, 76%, 1) 0%,
-      hsla(230, 83%, 37%, 1) 100%
+      var(--color-primary-violet) 0%,
+      var(--color-primary-blue) 100%
     );
 
     background: -moz-linear-gradient(
       180deg,
-      hsla(246, 79%, 76%, 1) 0%,
-      hsla(230, 83%, 37%, 1) 100%
+      var(--color-primary-violet) 0%,
+      var(--color-primary-blue) 100%
     );
 
     background: -webkit-linear-gradient(
       180deg,
-      hsla(246, 79%, 76%, 1) 0%,
-      hsla(230, 83%, 37%, 1) 100%
+      var(--color-primary-violet) 0%,
+      var(--color-primary-blue) 100%
     );
 
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#9B91F2", endColorstr="#102AAE", GradientType=1 );
@@ -100,7 +100,7 @@
 
       .submitButton {
         width: 100%;
-        background-color: #007bff;
+        background-color: var(--color-primary-blue);
         color: #fff;
         border: none;
         border-radius: 6px;

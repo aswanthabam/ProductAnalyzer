@@ -1,5 +1,14 @@
-const Main = (children: React.ReactNode) => {
-  return <div>{children}</div>;
+import { Outlet } from "react-router-dom";
+import { Toast } from "../../toast/Toast";
+import styles from "./Main.module.css";
+
+const Main = () => {
+  return (
+    <div className={styles.main}>
+      <Toast />
+      <Outlet />
+    </div>
+  );
 };
 
 export default Main;

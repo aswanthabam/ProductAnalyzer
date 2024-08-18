@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { register } from "../services/api";
 import { useState } from "react";
-import { useToast } from "../../../context/toast/ToastContext";
+import { useToast } from "../../../context/ToastContext";
 type RegisterForm = {
   full_name: string;
   email: string;

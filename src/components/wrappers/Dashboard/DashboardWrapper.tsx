@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { getUserInfo } from "./api";
 import styles from "./DashboardWrapper.module.css";
-import { useToast } from "../../../context/toast/ToastContext";
+import { useToast } from "../../../context/ToastContext";
 import InfoToast from "../../toast/InfoToast/InfoToast";
 
 export default function DashboardWrapper() {

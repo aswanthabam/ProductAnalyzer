@@ -1,5 +1,4 @@
 import React, { ReactNode, useContext } from "react";
-import InfoToast from "../../components/toast/InfoToast/InfoToast";
 
 export type ToastContextType = {
   child: ReactNode | null;

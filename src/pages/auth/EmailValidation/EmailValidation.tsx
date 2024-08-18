@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { useEffect, useState } from "react";
 import { resendEmail, validateEmail } from "../services/api";
-import { useToast } from "../../../context/toast/ToastContext";
+import { useToast } from "../../../context/ToastContext";
 type EmailValidationForm = {
   code: string;
 };

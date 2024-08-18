@@ -2,7 +2,7 @@ import { Formik, Form, Field } from "formik";
 import styles from "../CommonStyles.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../services/api";
-import { useToast } from "../../../context/toast/ToastContext";
+import { useToast } from "../../../context/ToastContext";
 
 type LoginForm = {
   email: string;

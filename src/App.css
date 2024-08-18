@@ -21,3 +21,48 @@
     display: none;
   }
 }
+
+.basic-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  gap: 10px;
+  z-index: 100;
+  width: 100%;
+}
+
+.basic-form .basic-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.basic-form .basic-button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.basic-form .basic-form-error {
+  color: red;
+  font-size: 0.8rem;
+  width: 100%;
+  text-align: left;
+  margin-left: 10px;
+}
+
+a.indirect-link {
+  color: #666666ae;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 12px;
+}

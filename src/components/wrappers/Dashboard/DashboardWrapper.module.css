@@ -1,15 +1,30 @@
 .dashboard {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
+  display: flex;
+
+  /* display: grid;
+  grid-template-columns: 1fr 4fr;
   grid-template-rows: 1fr;
-  grid-template-areas: "sidebar main";
+  grid-template-areas: "sidebar main"; */
   height: 100vh;
 
   .sidebar {
-    background: var(--color-primary-violet-2);
+    position: relative;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+
+    .dragger {
+      position: absolute;
+      top: 0;
+      right: -5px;
+      width: 5px;
+      height: 100%;
+      cursor: ew-resize;
+      background: #dddddd40;
+    }
   }
   .main {
     padding: 15px;
     width: calc(100% - 30px);
+    height: calc(100% - 30px);
+    overflow: auto;
   }
 }

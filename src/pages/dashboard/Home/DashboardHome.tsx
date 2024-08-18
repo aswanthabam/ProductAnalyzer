@@ -5,12 +5,14 @@ import { useToast } from "../../../context/ToastContext";
 import { useDialog } from "../../../context/DialogContext";
 import CreateProduct from "../../../components/form/CreateProduct/CreateProduct";
 import { useRefresh } from "../../../context/RefreshContext";
+import DefaultLoader from "../../../components/loaders/DefaultLoader/DefaultLoader";
 
 const DashboardHome = () => {
   const { showToast } = useToast();
   const { showDialog } = useDialog();
   const { refresh } = useRefresh();
   const [products, setProducts] = useState<ProductInfo[] | null>(null);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -20,6 +22,7 @@ const DashboardHome = () => {
     }
   }, [refresh]);
   const fetchProducts = async () => {
+    setLoading(true);
     await getProducts().then((res) => {
       if (res.status === "success") {
         setProducts(res.data);
@@ -27,6 +30,7 @@ const DashboardHome = () => {
         showToast(res.message, 3000);
       }
     });
+    setLoading(false);
   };
 
   const showCreateProductPopup = () => {
@@ -34,7 +38,7 @@ const DashboardHome = () => {
   };
   return (
     <div className={styles.container}>
-      <h3>Home</h3>
+      <h3>Your Products</h3>
       <div className={styles.quickActions}>
         <button
           className={styles.newProductButton}
@@ -44,12 +48,16 @@ const DashboardHome = () => {
           New Product
         </button>
       </div>
+      <DefaultLoader visible={loading} />
       <div className={styles.products}>
         {products?.map((product) => (
           <div key={product.id} className={styles.product}>
             <div className={styles.container}>
               <a className="indirect-link" href={product.base_url}>
-                {product.base_url} <i className="bi bi-box-arrow-up-right"></i>
+                {product.base_url
+                  .replace("http://", "")
+                  .replace("https://", "")}{" "}
+                <i className="bi bi-box-arrow-up-right"></i>
               </a>
               <h4>{product.name}</h4>
               <p>{product.description}</p>

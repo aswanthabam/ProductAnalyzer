@@ -21,16 +21,40 @@
   .menu {
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: start;
     flex-direction: column;
+
+    .header {
+      padding: 10px;
+      padding-left: 0;
+      width: calc(100% - 10px);
+      font-weight: 700;
+      margin-bottom: 10px;
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 10px;
+        text-decoration: none;
+        color: #000595f0;
+        i {
+          color: #000595f0;
+          font-size: 16px;
+        }
+        &:hover {
+          color: var(--color-primary-blue);
+        }
+      }
+    }
     .menuGroup {
       width: calc(100% - 20px);
       display: flex;
       flex-direction: column;
       align-items: start;
       justify-content: start;
-      margin-top: 20px;
+      margin-bottom: 20px;
       gap: 10px;
       background: #dddddd60;
       border-radius: 5px;

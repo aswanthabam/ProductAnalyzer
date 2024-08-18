@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { mainMenu, NavbarMenuGroup } from "../menu/menu";
+import { mainMenu, Navbar } from "../menu/menu";
 
-export type NavbarContextType = NavbarMenuGroup[];
+export type NavbarContextType = Navbar;
 
 const NavbarContext: React.Context<{
   nav: NavbarContextType;
@@ -30,7 +30,7 @@ const NavbarProvider = ({
 
 export type NavbarHookParams = {
   nav: NavbarContextType;
-  setNav: React.Dispatch<React.SetStateAction<NavbarContextType>> | null;
+  setNav: React.Dispatch<React.SetStateAction<NavbarContextType>>;
 };
 
 export const useNavbar = (): NavbarHookParams => {
@@ -41,7 +41,7 @@ export const useNavbar = (): NavbarHookParams => {
 
   const props = {
     nav: context.nav,
-    setNav: context.setNav,
+    setNav: context.setNav!,
   };
   return props;
 };

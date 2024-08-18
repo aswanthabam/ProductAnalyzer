@@ -6,6 +6,8 @@ import { useDialog } from "../../../context/DialogContext";
 import CreateProduct from "../../../components/form/CreateProduct/CreateProduct";
 import { useRefresh } from "../../../context/RefreshContext";
 import DefaultLoader from "../../../components/loaders/DefaultLoader/DefaultLoader";
+import { useNavbar } from "../../../context/NavbarContext";
+import { productMenu } from "../../../menu/menu";
 
 const DashboardHome = () => {
   const { showToast } = useToast();
@@ -13,6 +15,7 @@ const DashboardHome = () => {
   const { refresh } = useRefresh();
   const [products, setProducts] = useState<ProductInfo[] | null>(null);
   const [loading, setLoading] = useState(false);
+  // const setNav = useNavbar().setNav;
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -20,6 +23,13 @@ const DashboardHome = () => {
     if (refresh === "products") {
       fetchProducts();
     }
+    // setNav(
+    //   productMenu("james", {
+    //     name: "James",
+    //     page: "/dashboard/home",
+    //     icon: <i className="bi bi-house-door-fill"></i>,
+    //   })
+    // );
   }, [refresh]);
   const fetchProducts = async () => {
     setLoading(true);

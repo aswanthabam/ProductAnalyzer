@@ -6,8 +6,8 @@ import { useDialog } from "../../../context/DialogContext";
 import CreateProduct from "../../../components/form/CreateProduct/CreateProduct";
 import { useRefresh } from "../../../context/RefreshContext";
 import DefaultLoader from "../../../components/loaders/DefaultLoader/DefaultLoader";
-import { useNavbar } from "../../../context/NavbarContext";
-import { productMenu } from "../../../menu/menu";
+// import { useNavbar } from "../../../context/NavbarContext";
+// import { productMenu } from "../../../menu/menu";
 
 const DashboardHome = () => {
   const { showToast } = useToast();

@@ -32,6 +32,7 @@ const Register = () => {
       .then((res) => {
         if (res.status === "success") {
           localStorage.setItem("accessToken", res.data.access_token);
+          localStorage.setItem("refreshToken", res.data.refresh_token);
           redirect("/register/confirm-email");
           showToast("Registered successfully. Please verify your email", 3000);
         } else {

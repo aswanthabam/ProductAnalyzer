@@ -20,6 +20,7 @@ const Login = () => {
     login(values.email, values.password).then((res) => {
       if (res.status === "success") {
         localStorage.setItem("accessToken", res.data.access_token);
+        localStorage.setItem("refreshToken", res.data.refresh_token);
         showToast("Logged in successfully");
         redirect("/dashboard");
       } else {

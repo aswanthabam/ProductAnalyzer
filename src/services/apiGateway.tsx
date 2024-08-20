@@ -24,6 +24,45 @@ export const privateGateway = axios.create({
     "Content-Type": "application/json",
   },
 });
+export type TokenResponse = APIResponse<{
+  access_token: string;
+  refresh_token: string;
+}>;
+privateGateway.interceptors.response.use(
+  function (response) {
+    return response;
+  },
+  async function (error) {
+    if (error.response?.data?.status === "failed") {
+      if (error.response.data.code === 1001) {
+        console.log("Token expired, redirecting to login page");
+        var refToken = localStorage.getItem("refreshToken");
+        if (refToken) {
+          var res = await publicGatewayPOST<TokenResponse>(
+            `/api/user/auth/get-access-token`,
+            {
+              refresh_token: refToken,
+            }
+          ).then((res) => {
+            if (res.status === "success") {
+              localStorage.setItem("accessToken", res.data.access_token);
+              localStorage.setItem("refreshToken", res.data.refresh_token);
+              console.log("Token refreshed, retrying the request");
+              return privateGateway.request(error.config);
+            } else {
+              console.log("Failed to refresh token, redirecting to login page");
+              localStorage.removeItem("accessToken");
+              localStorage.removeItem("refreshToken");
+              return Promise.reject(error);
+            }
+          });
+          return res;
+        }
+      }
+    }
+    return Promise.reject(error);
+  }
+);
 
 // Add a request interceptor
 privateGateway.interceptors.request.use(

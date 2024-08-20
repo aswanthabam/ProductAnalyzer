@@ -6,6 +6,7 @@ import {
 
 export type RegisterResponse = APIResponse<{
   access_token: string;
+  refresh_token: string;
 }>;
 
 export const register = async (
@@ -22,6 +23,7 @@ export const register = async (
 
 export type LoginResponse = APIResponse<{
   access_token: string;
+  refresh_token: string;
 }>;
 
 export const login = async (email: string, password: string) => {

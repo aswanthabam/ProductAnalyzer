@@ -9,6 +9,7 @@ import EmailValidation from "./pages/auth/EmailValidation/EmailValidation";
 import DashboardWrapper from "./components/wrappers/Dashboard/DashboardWrapper";
 import DashboardHome from "./pages/dashboard/Home/DashboardHome";
 import Main from "./components/wrappers/Main/Main";
+import Logout from "./pages/auth/Logout/Logout";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="/" element={<Main />}>
         <Route path="" element={<Home />} />
         <Route path="login" element={<Login />} />
+        <Route path="logout" element={<Logout />} />
         <Route path="register">
           <Route path="" element={<Register />} />
           <Route path="confirm-email" element={<EmailValidation />} />

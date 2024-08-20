@@ -4,6 +4,7 @@ export type NavbarMenuItem = {
   name: string;
   page: string;
   icon: ReactNode;
+  classNames?: string;
 };
 
 export type NavbarMenuGroup = {
@@ -50,6 +51,17 @@ export const mainMenu: Navbar = {
           name: "Settings",
           page: "/dashboard/account/settings",
           icon: <i className="bi bi-gear-fill"></i>,
+        },
+      ],
+    },
+    {
+      name: "",
+      items: [
+        {
+          name: "Logout",
+          page: "/logout",
+          icon: <i className="bi bi-door-open-fill"></i>,
+          classNames: "dashboard-menu-item-red",
         },
       ],
     },

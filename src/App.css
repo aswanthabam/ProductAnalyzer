@@ -66,3 +66,11 @@ a.indirect-link {
   cursor: pointer;
   font-size: 12px;
 }
+
+.dashboard-menu-item-red {
+  background-color: #ffc0c0;
+  color: rgb(173, 68, 68) !important;
+  i {
+    color: rgb(193, 88, 88) !important;
+  }
+}

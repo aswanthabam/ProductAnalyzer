@@ -59,7 +59,11 @@
       background: #dddddd60;
       border-radius: 5px;
       padding: 10px;
-
+      &.menuGroupInvisible {
+        padding: 0;
+        background: transparent;
+        width: 100%;
+      }
       label {
         font-weight: 700;
         color: #22222260;

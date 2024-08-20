@@ -17,12 +17,19 @@ const Sidebar = () => {
           </div>
         )}
         {nav.items.map((group) => (
-          <ul key={group.name} className={styles.menuGroup}>
+          <ul
+            key={group.name}
+            className={
+              styles.menuGroup +
+              " " +
+              (group.name == "" ? styles.menuGroupInvisible : "")
+            }
+          >
             <label>{group.name}</label>
             {group.items.map((item) => (
               <li
                 key={item.name}
-                className={styles.menuItem}
+                className={styles.menuItem + " " + item.classNames}
                 onClick={() => {
                   redirect(item.page);
                 }}

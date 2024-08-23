@@ -3,16 +3,7 @@ import {
   privateGatewayGET,
   privateGatewayPOST,
 } from "../../../services/apiGateway";
-
-export type Product = {
-  name: string;
-  product_id: string;
-  description: string;
-  base_url: string;
-};
-export type ProductInfo = {
-  id: string;
-} & Product;
+import { Product, ProductInfo } from "../../../utils/types";
 
 export type ProductCreateResponse = APIResponse<{
   product_id: string;

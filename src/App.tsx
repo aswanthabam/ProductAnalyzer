@@ -10,6 +10,7 @@ import DashboardWrapper from "./components/wrappers/Dashboard/DashboardWrapper";
 import DashboardHome from "./pages/dashboard/Home/DashboardHome";
 import Main from "./components/wrappers/Main/Main";
 import Logout from "./pages/auth/Logout/Logout";
+import DashboardProduct from "./pages/dashboard/Product";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         </Route>
         <Route path="dashboard" element={<DashboardWrapper />}>
           <Route path="" element={<DashboardHome />} />
+          <Route path="product/:productId" element={<DashboardProduct />} />
         </Route>
       </Route>
       <Route path="*" element={<NotFound />} />

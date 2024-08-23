@@ -11,9 +11,22 @@ const Sidebar = () => {
       <div className={styles.menu}>
         {nav.head && (
           <div className={styles.header}>
-            <Link to={nav.head.page}>
-              <i className="bi bi-chevron-left"></i> {nav.head.name}
-            </Link>
+            {nav.head.page === "back" ? (
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  redirect(-1);
+                }}
+              >
+                {" "}
+                <i className="bi bi-chevron-left"></i> Dashboard{" "}
+              </a>
+            ) : (
+              <Link to={nav.head.page}>
+                <i className="bi bi-chevron-left"></i> {nav.head.name}
+              </Link>
+            )}
           </div>
         )}
         {nav.items.map((group) => (

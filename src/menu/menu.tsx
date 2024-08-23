@@ -68,6 +68,11 @@ export const mainMenu: Navbar = {
   ],
   head: null,
 };
+export const backItem: NavbarMenuItem = {
+  name: "Back",
+  page: "back",
+  icon: <i className="bi bi-arrow-left"></i>,
+};
 
 export const productMenu = (
   productid: string,

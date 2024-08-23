@@ -8,6 +8,8 @@ import { useRefresh } from "../../../context/RefreshContext";
 import DefaultLoader from "../../../components/loaders/DefaultLoader/DefaultLoader";
 import { ProductInfo } from "../../../utils/types";
 import ProductList from "../../../components/pages/ProductList";
+import { useNavbar } from "../../../context/NavbarContext";
+import { mainMenu } from "../../../menu/menu";
 // import { useNavbar } from "../../../context/NavbarContext";
 // import { productMenu } from "../../../menu/menu";
 
@@ -17,7 +19,9 @@ const DashboardHome = () => {
   const { refresh } = useRefresh();
   const [products, setProducts] = useState<ProductInfo[] | null>(null);
   const [loading, setLoading] = useState(false);
+  const setNav = useNavbar().setNav;
   useEffect(() => {
+    setNav(mainMenu);
     fetchProducts();
   }, []);
   useEffect(() => {

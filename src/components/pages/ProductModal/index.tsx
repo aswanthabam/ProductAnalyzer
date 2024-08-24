@@ -9,7 +9,7 @@ const ProductModal = ({ product }: { product: ProductInfo }) => {
       key={product.id}
       className={styles.product}
       onClick={() => {
-        redirect(`/dashboard/product/${product.id}`);
+        redirect(`/dashboard/product/${product.product_id}`);
       }}
     >
       <div className={styles.container}>
